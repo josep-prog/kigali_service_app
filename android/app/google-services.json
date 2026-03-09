@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "324083063568",
+    "project_id": "kigali-service-app",
+    "storage_bucket": "kigali-service-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324083063568:android:0f4ece29c9939a32a6a395",
+        "android_client_info": {
+          "package_name": "com.kigali_service_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324083063568-6q8tquoqklm5j6jfqvdd1vrinkm4kqd0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kigali_service_app",
+            "certificate_hash": "7c23af3f14cbf756b7811e49ac6c5b72e6331439"
+          }
+        },
+        {
+          "client_id": "324083063568-cru2qc1qbfs46bsk7ro10ous2mg5leis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkIye6YuU-gqMOJDGys8hAs-rV2ht_xmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324083063568-cru2qc1qbfs46bsk7ro10ous2mg5leis.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

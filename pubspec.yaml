@@ -1,0 +1,31 @@
+name: kigali_city_services
+description: A Flutter app for discovering services and places in Kigali
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  firebase_core: ^4.4.0
+  firebase_auth: ^6.1.4
+  cloud_firestore: ^6.1.2
+  provider: ^6.1.1
+  flutter_map: ^6.1.0
+  latlong2: ^0.9.0
+  url_launcher: ^6.2.2
+  intl: ^0.18.1
+  google_fonts: ^6.2.1
+  flutter_animate: ^4.5.0
+  shimmer: ^3.0.0
+  http: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
