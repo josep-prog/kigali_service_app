@@ -37,7 +37,6 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.fromLTRB(24, 52, 24, 32),
               child: Column(
                 children: [
-                  // ── Hero ────────────────────────────────────────────
                   Column(
                     children: [
                       Container(
@@ -100,7 +99,6 @@ class _LoginScreenState extends State<LoginScreen> {
 
                   const SizedBox(height: 40),
 
-                  // ── Glass card ──────────────────────────────────────
                   Container(
                     padding: const EdgeInsets.fromLTRB(28, 28, 28, 24),
                     decoration: BoxDecoration(
@@ -137,7 +135,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 28),
 
-                          // Email
                           TextFormField(
                             controller: _emailController,
                             keyboardType: TextInputType.emailAddress,
@@ -152,7 +149,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 16),
 
-                          // Password
                           TextFormField(
                             controller: _passwordController,
                             obscureText: _obscurePassword,
@@ -177,7 +173,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 24),
 
-                          // Error banner
                           Consumer<AuthProvider>(
                             builder: (context, auth, _) {
                               if (auth.error != null) {
@@ -218,7 +213,6 @@ class _LoginScreenState extends State<LoginScreen> {
                             },
                           ),
 
-                          // Sign in button
                           Consumer<AuthProvider>(
                             builder: (context, auth, _) {
                               return kGradientButton(
@@ -241,7 +235,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(height: 22),
 
-                          // Sign up link
                           Center(
                             child: Row(
                               mainAxisAlignment:

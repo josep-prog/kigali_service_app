@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-// ─── User Model ───────────────────────────────────────────────────────────────
-
 class UserModel {
   final String uid;
   final String email;
@@ -33,8 +31,6 @@ class UserModel {
     };
   }
 }
-
-// ─── Listing Model ────────────────────────────────────────────────────────────
 
 class ListingModel {
   final String? id;

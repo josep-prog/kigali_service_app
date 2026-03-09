@@ -8,8 +8,6 @@ import '../providers.dart';
 import '../models.dart';
 import '../ui_helpers.dart';
 
-/// Unified form for creating and editing listings.
-/// Pass [listing] to edit an existing listing; leave null to create a new one.
 class ListingFormScreen extends StatefulWidget {
   final ListingModel? listing;
   final double? initialLat;
@@ -104,7 +102,6 @@ class _ListingFormScreenState extends State<ListingFormScreen> {
     final provider = context.read<ListingsProvider>();
 
     if (widget.isEditing) {
-      // Update existing listing
       await provider.updateListing(widget.listing!.id!, {
         'name': _nameController.text,
         'category': _category,
@@ -115,7 +112,6 @@ class _ListingFormScreenState extends State<ListingFormScreen> {
         'longitude': lng,
       });
     } else {
-      // Create new listing
       final listing = ListingModel(
         name: _nameController.text,
         category: _category,

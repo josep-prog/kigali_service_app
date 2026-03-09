@@ -89,7 +89,6 @@ class ListingDetailScreen extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          // Full-bleed map at top
           SizedBox(
             height: 320,
             child: FlutterMap(
@@ -132,7 +131,6 @@ class ListingDetailScreen extends StatelessWidget {
             ),
           ),
 
-          // Scrollable content card overlapping the map
           SingleChildScrollView(
             child: Column(
               children: [
@@ -152,7 +150,6 @@ class ListingDetailScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // Drag handle
                         Center(
                           child: Container(
                             width: 40,
@@ -165,7 +162,6 @@ class ListingDetailScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
 
-                        // Name + category badge
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -207,7 +203,6 @@ class ListingDetailScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
 
-                        // Description
                         Container(
                           padding: const EdgeInsets.all(14),
                           decoration: BoxDecoration(
@@ -222,13 +217,11 @@ class ListingDetailScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
 
-                        // Info rows
                         _infoRow(Icons.location_on_rounded, listing.address, kTerra),
                         const SizedBox(height: 12),
                         _infoRow(Icons.phone_rounded, listing.phoneNumber, kGreenLight),
                         const SizedBox(height: 28),
 
-                        // Buttons
                         kGradientButton(
                           'Get Directions',
                           () async {

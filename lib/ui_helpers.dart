@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shimmer/shimmer.dart';
 
-// ─── Animated Ambient Background (auth screens) ──────────────────────────────
-
 class KAmbientBackground extends StatefulWidget {
   const KAmbientBackground({super.key});
 
@@ -50,10 +48,8 @@ class _GlowPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final rect = Offset.zero & size;
 
-    // Base background
     canvas.drawRect(rect, Paint()..color = const Color(0xFF0A1929));
 
-    // Blue glow — top-left, breathes slowly
     canvas.drawRect(
       rect,
       Paint()
@@ -67,7 +63,6 @@ class _GlowPainter extends CustomPainter {
         ).createShader(rect),
     );
 
-    // Warm accent glow — bottom-right, inverse pulse
     canvas.drawRect(
       rect,
       Paint()
@@ -86,8 +81,6 @@ class _GlowPainter extends CustomPainter {
   bool shouldRepaint(_GlowPainter old) => old.t != t;
 }
 
-// ─── Theme Colors ─────────────────────────────────────────────────────────────
-
 const kBg = Color(0xFF0A1929);
 const kSurface = Color(0xFF0D2137);
 const kSurface2 = Color(0xFF132F4C);
@@ -97,8 +90,6 @@ const kTerra = Color(0xFFFF6B35);
 const kGold = Color(0xFFD4A853);
 const kCream = Color(0xFFE8E0D4);
 const kMuted = Color(0xFF8B8680);
-
-// ─── Category Helpers ─────────────────────────────────────────────────────────
 
 Color kCategoryColor(String category) {
   const colors = {
@@ -125,8 +116,6 @@ IconData kCategoryIcon(String category) {
   };
   return icons[category] ?? Icons.pin_drop_rounded;
 }
-
-// ─── Reusable Widgets ─────────────────────────────────────────────────────────
 
 Widget kGradientButton(String label, VoidCallback? onPressed,
     {IconData? icon}) {

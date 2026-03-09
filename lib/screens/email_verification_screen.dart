@@ -30,7 +30,6 @@ class EmailVerificationScreen extends StatelessWidget {
                   children: [
                     const SizedBox(height: 32),
 
-                    // Icon
                     Container(
                       width: 100,
                       height: 100,
@@ -44,7 +43,6 @@ class EmailVerificationScreen extends StatelessWidget {
                         begin: const Offset(0.6, 0.6), duration: 600.ms),
                     const SizedBox(height: 32),
 
-                    // Title
                     Text(
                       'Verify Your Email',
                       style: GoogleFonts.playfairDisplay(
@@ -56,7 +54,6 @@ class EmailVerificationScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 16),
 
-                    // Description
                     Text(
                       'We sent a verification link to',
                       style: GoogleFonts.dmSans(fontSize: 13, color: kMuted),
@@ -97,7 +94,6 @@ class EmailVerificationScreen extends StatelessWidget {
 
                     const SizedBox(height: 40),
 
-                    // Error / info message
                     if (authProvider.error != null)
                       Container(
                         padding: const EdgeInsets.all(14),
@@ -117,7 +113,7 @@ class EmailVerificationScreen extends StatelessWidget {
                           children: [
                             Icon(
                               authProvider.error!.contains('sent')
-                                  ? Icons.check_circle_outline
+                                  ? Icons.info_outline
                                   : Icons.error_outline,
                               color: authProvider.error!.contains('sent')
                                   ? kGreenLight
@@ -140,7 +136,6 @@ class EmailVerificationScreen extends StatelessWidget {
                         ),
                       ),
 
-                    // Check verification button
                     kGradientButton(
                       authProvider.isLoading
                           ? 'Checking...'
@@ -159,12 +154,10 @@ class EmailVerificationScreen extends StatelessWidget {
                                 );
                               }
                             },
-                      icon: Icons.check_circle,
                     ),
 
                     const SizedBox(height: 16),
 
-                    // Resend email
                     TextButton(
                       onPressed: authProvider.isLoading
                           ? null
@@ -180,7 +173,6 @@ class EmailVerificationScreen extends StatelessWidget {
 
                     const SizedBox(height: 8),
 
-                    // Logout
                     TextButton(
                       onPressed: () => authProvider.signOut(),
                       child: Text(

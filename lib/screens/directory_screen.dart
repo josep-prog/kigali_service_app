@@ -31,7 +31,6 @@ class _DirectoryScreenState extends State<DirectoryScreen> {
   @override
   void initState() {
     super.initState();
-    // Created once — never recreated, so StreamBuilder never resets
     _baseStream = context.read<ListingsProvider>().listingsStream;
   }
 
@@ -41,7 +40,6 @@ class _DirectoryScreenState extends State<DirectoryScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            // ── Branded header ──────────────────────────────────────
             Container(
               width: double.infinity,
               padding: const EdgeInsets.fromLTRB(20, 18, 20, 18),
@@ -98,7 +96,6 @@ class _DirectoryScreenState extends State<DirectoryScreen> {
                 ],
               ),
             ),
-            // ── Search ──────────────────────────────────────────────
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 14, 16, 8),
               child: TextField(
@@ -110,7 +107,6 @@ class _DirectoryScreenState extends State<DirectoryScreen> {
                     context.read<ListingsProvider>().setSearchQuery(v),
               ),
             ),
-            // ── Category dropdown ────────────────────────────────────
             Consumer<ListingsProvider>(
               builder: (context, provider, _) {
                 final selected = provider.selectedCategory;
@@ -182,11 +178,7 @@ class _DirectoryScreenState extends State<DirectoryScreen> {
                                         : FontWeight.w400,
                                   ),
                                 ),
-                                if (isSelected) ...[
-                                  const Spacer(),
-                                  Icon(Icons.check_rounded,
-                                      size: 16, color: color),
-                                ],
+                                if (isSelected) const Spacer(),
                               ],
                             ),
                           );
@@ -197,7 +189,6 @@ class _DirectoryScreenState extends State<DirectoryScreen> {
                 );
               },
             ),
-            // ── Listings ─────────────────────────────────────────────
             Expanded(
               child: Consumer<ListingsProvider>(
                 builder: (context, provider, _) {
@@ -225,8 +216,6 @@ class _DirectoryScreenState extends State<DirectoryScreen> {
                         );
                       }
 
-                      // Apply search + category filter in-builder —
-                      // no new stream needed, no waiting reset
                       var listings = snapshot.data ?? [];
                       if (provider.searchQuery.isNotEmpty) {
                         listings = listings

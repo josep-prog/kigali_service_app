@@ -166,8 +166,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// ─── Auth Wrapper (routes based on auth + verification state) ─────────────────
-
 class AuthWrapper extends StatefulWidget {
   const AuthWrapper({super.key});
 

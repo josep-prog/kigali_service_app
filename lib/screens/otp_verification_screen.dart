@@ -169,7 +169,6 @@ class _OtpVerificationScreenState extends State<OtpVerificationScreen> {
                   kGradientButton(
                     'Verify Code',
                     _verifyOtp,
-                    icon: Icons.check_circle,
                   ),
                   const SizedBox(height: 16),
                   TextButton(

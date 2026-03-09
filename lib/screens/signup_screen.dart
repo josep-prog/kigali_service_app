@@ -72,7 +72,6 @@ class _SignupScreenState extends State<SignupScreen> {
               padding: const EdgeInsets.fromLTRB(24, 52, 24, 32),
               child: Column(
                 children: [
-                  // ── Hero ────────────────────────────────────────────
                   Column(
                     children: [
                       Container(
@@ -135,7 +134,6 @@ class _SignupScreenState extends State<SignupScreen> {
 
                   const SizedBox(height: 40),
 
-                  // ── Glass card ──────────────────────────────────────
                   Container(
                     padding: const EdgeInsets.fromLTRB(28, 28, 28, 24),
                     decoration: BoxDecoration(
@@ -172,7 +170,6 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                           const SizedBox(height: 28),
 
-                          // Full name
                           TextFormField(
                             controller: _nameController,
                             textCapitalization: TextCapitalization.words,
@@ -186,7 +183,6 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                           const SizedBox(height: 16),
 
-                          // Email
                           TextFormField(
                             controller: _emailController,
                             keyboardType: TextInputType.emailAddress,
@@ -201,7 +197,6 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                           const SizedBox(height: 16),
 
-                          // Password
                           TextFormField(
                             controller: _passwordController,
                             obscureText: _obscurePassword,
@@ -225,7 +220,6 @@ class _SignupScreenState extends State<SignupScreen> {
                                 v!.length < 6 ? 'Min 6 characters' : null,
                           ),
 
-                          // Strength meter
                           if (_strengthLevel > 0) ...[
                             const SizedBox(height: 12),
                             Row(
@@ -262,7 +256,6 @@ class _SignupScreenState extends State<SignupScreen> {
                           ],
                           const SizedBox(height: 24),
 
-                          // Error banner
                           Consumer<AuthProvider>(
                             builder: (context, auth, _) {
                               if (auth.error != null) {
@@ -303,7 +296,6 @@ class _SignupScreenState extends State<SignupScreen> {
                             },
                           ),
 
-                          // Create account button
                           Consumer<AuthProvider>(
                             builder: (context, auth, _) {
                               return kGradientButton(
@@ -331,7 +323,6 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                           const SizedBox(height: 22),
 
-                          // Login link
                           Center(
                             child: Row(
                               mainAxisAlignment:

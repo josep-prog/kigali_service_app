@@ -3,8 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'services.dart';
 import 'models.dart';
 
-// ─── Auth Provider ────────────────────────────────────────────────────────────
-
 class AuthProvider extends ChangeNotifier {
   final AuthService _authService = AuthService();
   final FirestoreService _firestoreService = FirestoreService();
@@ -26,15 +24,12 @@ class AuthProvider extends ChangeNotifier {
     try {
       final credential = await _authService.signUp(email, password);
       if (credential.user != null) {
-        // Create user profile in Firestore
         await _firestoreService.createUserProfile(UserModel(
           uid: credential.user!.uid,
           email: email,
           displayName: displayName,
           createdAt: DateTime.now(),
         ));
-        
-        // Send Firebase email verification
         await _authService.sendEmailVerification();
         _verificationEmailSent = true;
       }
@@ -52,11 +47,9 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      // Reload user to get latest email verification status
       await _authService.reloadUser();
-      
+
       if (currentUser?.emailVerified ?? false) {
-        // Update Firestore profile to mark as verified
         await _firestoreService.updateUserVerification(currentUser!.uid);
         return true;
       }
@@ -114,12 +107,10 @@ class AuthProvider extends ChangeNotifier {
   Future<bool> isUserVerified() async {
     if (currentUser == null) return false;
     try {
-      // Check Firebase Auth's email verification status
       await _authService.reloadUser();
       if (currentUser?.emailVerified ?? false) {
         return true;
       }
-      // Also check Firestore as fallback
       final doc = await _firestoreService.getUserProfile(currentUser!.uid);
       return doc?['emailVerified'] ?? false;
     } catch (e) {
@@ -133,16 +124,11 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
 
     try {
-      // In Firebase, email verification is the security mechanism
-      // OTP is typically sent via email. Here we validate it in Firestore.
       final userEmail = currentUser?.email;
       if (userEmail != email) {
         _error = 'Email mismatch';
         return false;
       }
-      
-      // In a production app, you'd validate the OTP against a stored code
-      // For now, we mark the user as verified if email matches
       await _firestoreService.updateUserVerification(currentUser!.uid);
       return true;
     } catch (e) {
@@ -159,8 +145,6 @@ class AuthProvider extends ChangeNotifier {
     return await _firestoreService.getUserProfile(currentUser!.uid);
   }
 }
-
-// ─── Listings Provider ────────────────────────────────────────────────────────
 
 class ListingsProvider extends ChangeNotifier {
   final FirestoreService _service = FirestoreService();

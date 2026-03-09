@@ -2,8 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'models.dart';
 
-// ─── Auth Service ─────────────────────────────────────────────────────────────
-
 class AuthService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
@@ -27,16 +25,13 @@ class AuthService {
   Future<void> signOut() async => await _auth.signOut();
 
   Future<void> reloadUser() async => await _auth.currentUser?.reload();
-  
-  // Send Firebase email verification link
+
   Future<void> sendEmailVerification() async {
     if (_auth.currentUser != null) {
       await _auth.currentUser!.sendEmailVerification();
     }
   }
 }
-
-// ─── Firestore Service ────────────────────────────────────────────────────────
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;

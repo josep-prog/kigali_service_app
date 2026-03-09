@@ -182,7 +182,6 @@ class _MapViewScreenState extends State<MapViewScreen> {
             },
           ),
 
-          // Hint banner when picking location
           if (_pickingLocation)
             Positioned(
               top: 16,
@@ -213,14 +212,13 @@ class _MapViewScreenState extends State<MapViewScreen> {
                     ),
                     GestureDetector(
                       onTap: () => setState(() => _pickingLocation = false),
-                      child: const Icon(Icons.close, color: Colors.white70, size: 18),
+                      child: const Text('✕', style: TextStyle(color: Colors.white70, fontSize: 16)),
                     ),
                   ],
                 ),
               ),
             ),
 
-          // FAB to add listing
           Positioned(
             bottom: 96,
             right: 16,
